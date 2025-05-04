@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Inserir Notícias</title>
+</head>
+<body>
+  <h2>Inserindo Notícias no Firestore...</h2>
+  <p>Confira o console do navegador para ver o status.</p>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  
+    // Configuração do Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDvaBKahrzRvll1xseSprZwIiu-HJVXy5U",
+      authDomain: "furia-11eb6.firebaseapp.com",
+      projectId: "furia-11eb6",
+      storageBucket: "furia-11eb6.appspot.com",
+      messagingSenderId: "267717144764",
+      appId: "1:267717144764:web:4dc38a1e6bf2eec9bee0b9",
+      measurementId: "G-G9VRV84WW3"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    async function popularFirestore() {
+      // Coleção NOTÍCIAS
+      const noticias = [
+        {
+          titulo: "Notícia 1 - LoL: Grandes mudanças no meta",
+          descricao: "Grandes mudanças estão a caminho no meta de LoL. As atualizações que estão por vir vão transformar o jogo!",
+          modalidade: "LoL",
+          imagem: "https://example.com/imagem1-lol.jpg" // Substitua pelo URL da imagem
+        },
+        {
+          titulo: "Notícia 2 - LoL: FURIA no topo!",
+          descricao: "A FURIA continua dominando o cenário de LoL, garantindo a liderança no campeonato!",
+          modalidade: "LoL",
+          imagem: "https://example.com/imagem2-lol.jpg" // Substitua pelo URL da imagem
+        },
+        {
+          titulo: "Notícia 1 - CS2: Atualização traz novos mapas",
+          descricao: "CS2 recebe uma nova atualização com mapas inéditos que prometem agitar as competições!",
+          modalidade: "CS2",
+          imagem: "https://example.com/imagem1-cs2.jpg" // Substitua pelo URL da imagem
+        },
+        {
+          titulo: "Notícia 2 - CS2: FURIA com novo elenco",
+          descricao: "O time de CS2 da FURIA foi renovado com novas adições que vão levar a equipe ao próximo nível!",
+          modalidade: "CS2",
+          imagem: "https://example.com/imagem2-cs2.jpg" // Substitua pelo URL da imagem
+        }
+      ];
+
+      // Loop para adicionar cada notícia ao Firestore
+      for (const noticia of noticias) {
+        await setDoc(doc(db, "noticias", noticia.titulo), noticia);
+        console.log(`Notícia adicionada: ${noticia.titulo}`);
+      }
+
+      alert("Firestore populado com sucesso!");
+    }
+  
+    // Executa ao carregar a página
+    window.onload = popularFirestore;
+  </script>
+  
+</body>
+</html>
