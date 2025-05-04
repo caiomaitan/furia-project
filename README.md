@@ -29,16 +29,7 @@ Atender ao desafio "Know Your Fan" coletando dados reais de fãs, armazenando es
 
 
 
-## 📁 Estrutura do Projeto
 
-furia-project/
-│
-├── cadastro.html # Tela de cadastro com integração ao Firebase
-├── login.html # Tela de login funcional
-├── home.html # Página inicial com exibição de dados e interação
-├── firebase-config.js # Configurações do Firebase
-├── script.js # Scripts de manipulação de dados
-└── README.md # Este arquivo
 
 bash
 Copiar
@@ -49,7 +40,7 @@ Editar
 1. Clone o repositório:
    ```bash
    git clone https://github.com/caiomaitan/furia-project.git
-Abra o arquivo index.html (ou login.html) no navegador.
+Abra o arquivo index.html  no navegador.
 
 Para testar o Firebase, configure seu projeto no Firebase Console, ative o Authentication e Firestore, e substitua as credenciais no arquivo firebase-config.js.
 
